@@ -1,0 +1,157 @@
+body {
+	background-color: #FBF9FE;
+	color: gray;
+}
+
+p {
+	text-indent: 2em;
+	line-height: 24px;
+	letter-spacing: 2px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+h4 {
+	letter-spacing: 2px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	color: #E3695B;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon {
+	width: 2.5em;
+	height: 2.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.bt {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	height: 40px;
+	width: 100%;
+	background-color: rgba(15, 15, 15, 0.5);
+	position: fixed;
+	z-index: 999;
+	bottom: 0;
+}
+
+.tp {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	height: 40px;
+	width: 100%;
+	background-color: rgba(15, 15, 15, 0.5);
+	position: fixed;
+	z-index: 999;
+	top: 0;
+}
+
+.list {
+	color: white;
+	height: 370px;
+	width: 100%;
+	background-color: rgba(15, 15, 15, 0.5);
+	position: fixed;
+	z-index: 999;
+	bottom: 6%;
+}
+
+.option {
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+.options {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.iconOne {
+	width: 2em;
+	height: 2em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconTwo {
+	width: 1.7em;
+	height: 1.7em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconThree {
+	width: 1.8em;
+	height: 1.8em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconFour {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconFive {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconSix {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+
+/* 指正常的未被访问过的链接*/
+
+a:link {
+	text-decoration: none;
+	color: white;
+}
+
+
+/*指已经访问过的链接*/
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+
+/*指鼠标在链接*/
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+
+/* 指正在点的链接*/
+
+a:active {
+	text-decoration: none;
+	color: white;
+}

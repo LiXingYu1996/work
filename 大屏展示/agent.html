@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>大屏展示-代理商</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" href="css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="layer/theme/default/layer.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/agent.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- 引入jQuery核心js文件 -->
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript">
+			//代理商区域分布
+			function agent_dt() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '上海',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>代理个数</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//代理红包总数量和排行
+			function agent_hbzs() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>红包数量</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//代理发展商家总数和排行
+			function agent_fzsj() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>代理发展商家</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//代理充值总额和排行(代理下的商家总充值)
+			function agent_czze() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市 </th>' +
+					'<th>代理充值额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//代理消耗总额和排行(代理下的商家总消耗金额)
+			function agent_xhze() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>代理消耗额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//代理总余额和排行(代理下的商家总余额)
+			function agent_zye() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>代理余额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					/*skin: '', //样式类名*/
+					area: ['1000px', '500px'],
+					closeBtn: 2, //显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row animated bounce">
+				<!--<ul class="nav nav-tabs">-->
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation" class="active">
+						<a href="agent.html">代理商</a>
+					</li>
+					<li role="presentation">
+						<a href="business.html">商家</a>
+					</li>
+					<li role="presentation">
+						<a href="user.html">用户</a>
+					</li>
+					<li role="presentation">
+						<a href="account.html">账户</a>
+					</li>
+					<li role="presentation">
+						<a href="activity.html">活动</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="agent_dt"></div>
+				<button type="button" class="btn btn-info" onclick="agent_dt();" style="position:absolute;left:99.4rem;">详情</button>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="agent_hbzs"></div>
+				<button type="button" class="btn btn-info" onclick="agent_hbzs();" style="position:absolute;right:1.5rem;">详情</button>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="agent_fzsj"></div>
+				<button type="button" class="btn btn-info" onclick="agent_fzsj();" style="position:absolute;right:1.5rem;top:30rem;">详情</button>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="agent_czze"></div>
+				<button type="button" class="btn btn-info" onclick="agent_czze();" style="position:absolute;left:47rem;">详情</button>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="agent_xhze"></div>
+				<button type="button" class="btn btn-info" onclick="agent_xhze();" style="position:absolute;left:99.4rem;">详情</button>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="agent_zye"></div>
+				<button type="button" class="btn btn-info" onclick="agent_zye();" style="position:absolute;left:152.5rem;">详情</button>
+			</div>
+		</div>
+
+		<!-- 引入单文件 -->
+		<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+		<!-- 统计图表 -->
+		<script type="text/javascript">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+			//第一个，代理商分布图
+			require(
+				[
+					'echarts',
+					'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
+				],
+				function(ec) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = ec.init(document.getElementById('agent_dt'));
+					var option = {
+						title: {
+							text: '代理商分布图',
+							subtext: '代理商总数100家',
+							x: 'center',
+							textStyle: {
+								fontSize: 30,
+								color: '#fff'
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 20,
+								color: 'red'
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}个"
+						},
+						/*legend: {
+							orient: 'vertical',
+							x: 'left',
+							data: ['', '', '']
+						},*/
+						//颜色标识
+						dataRange: {
+							min: 0,
+							max: 2500,
+							x: 'left',
+							y: 'top',
+							text: ['高', '低'], // 文本，默认为数值文本
+							calculable: true
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'left',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						/*roamController: {
+							show: true,
+							x: 'right',
+							mapTypeControl: {
+								'china': true
+							}
+						},*/
+						series: [{
+							name: '代理商',
+							type: 'map',
+							mapType: 'china',
+							roam: false,
+							itemStyle: {
+								normal: {
+									label: {
+										show: true
+									}
+								},
+								emphasis: {
+									label: {
+										show: true
+									}
+								}
+							},
+							data: [{
+									name: '北京',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '天津',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '上海',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '重庆',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '河北',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '河南',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '云南',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '辽宁',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '黑龙江',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '湖南',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '安徽',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '山东',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '新疆',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '江苏',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '浙江',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '江西',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '湖北',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '广西',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '甘肃',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '山西',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '内蒙古',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '陕西',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '吉林',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '福建',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '贵州',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '广东',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '青海',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '西藏',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '四川',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '宁夏',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '海南',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '台湾',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '香港',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '澳门',
+									value: Math.round(Math.random() * 1000)
+								},
+								{
+									name: '南海诸岛',
+									value: Math.round(Math.random() * 1000)
+								}
+							]
+						}]
+					};
+
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				}
+			);
+
+			//第二个，代理红包总数量和排行柱状图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(agent_hbzs) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = agent_hbzs.init(document.getElementById('agent_hbzs'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '代理红包总数量和排行',
+							subtext: '代理红包总数量:10000000个',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 16,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '代理所属城市',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '红包总数（个）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}个"
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'right',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						series: [{
+							name: '代理红包总数量',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第三个，代理发展商家总数和排行柱状图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(agent_fzsj) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = agent_fzsj.init(document.getElementById('agent_fzsj'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '代理发展商家总数和排行',
+							subtext: '代理发展商家总数:10000家',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '代理所属城市',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '商家总数(个)',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}个"
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'right',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						series: [{
+							name: '代理发展商家总数',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第四个，代理充值总额和排行柱状图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(agent_zye) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = agent_zye.init(document.getElementById('agent_czze'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '代理充值总额和排行',
+							subtext: '代理充值总额:100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '代理所属城市',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总充值金额（万）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}万"
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'right',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						series: [{
+							name: '代理充值总额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第五个，代理消耗总额和排行柱状图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(agent_zye) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = agent_zye.init(document.getElementById('agent_xhze'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '代理消耗总额和排行',
+							subtext: '代理消耗总额:100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '代理所属城市',
+							type: 'category',
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总消耗金额（万）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}万"
+						},
+						series: [{
+							name: '代理消耗总额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						//去除外边的框框
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第六个，代理总余额和排行柱状图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(agent_zye) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = agent_zye.init(document.getElementById('agent_zye'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '代理总余额和排行',
+							subtext: '代理总余额:100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '代理所属城市',
+							type: 'category',
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总剩余金额（万）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}万"
+						},
+						series: [{
+							name: '代理总余额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+		</script>
+	</body>
+
+</html>

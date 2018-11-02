@@ -1,0 +1,42 @@
+body {
+	background-color: #F7F7F9;
+	font-family: "微软雅黑";
+	margin: 0px;
+}
+
+@-moz-document url-prefix() {
+	fieldset {
+		display: table-cell;
+	}
+}
+
+#xiangzuojiantou {
+	font-size: 2.5rem;
+	float: left;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#theader{
+	font-size: 1.7rem;
+}
+
+#header {
+	border: 1px solid dodgerblue;
+	background-color: dodgerblue;
+	text-align: center;
+	line-height: 3rem;
+	font-size: 2rem;
+	margin: 0 auto;
+	color: white;
+	height: 3rem;
+	width: 100%;
+}
+
+button{
+	color: dodgerblue;
+}
+
+.checkbox li {
+	list-style: none;
+}

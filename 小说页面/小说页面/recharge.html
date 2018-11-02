@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>充值页面</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/recharge.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid" style="background-color: white;">
+			<!-- 1.个人信息  -->
+			<div class="row first">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<span>您好,</span>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<span style="float: right;">当前书币:&nbsp;&nbsp;10000</span>
+				</div>
+			</div>
+
+			<!-- 2.支付方式  -->
+			<div class="row second">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-pull-1 col-sm-pull-1 col-md-pull-1 col-lg-pull-1">支付方式：</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xs-pull-1 col-sm-pull-1 col-md-pull-1 col-lg-pull-1 top">
+					<svg class="iconOne" aria-hidden="true">
+						<use xlink:href="#icon-weixinzhifu"></use>
+					</svg>&nbsp;
+					<span>微信支付</span>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 top">
+					<svg class="iconTwo" aria-hidden="true">
+						<use xlink:href="#icon-zhifubaozhifu-copy"></use>
+					</svg>
+				</div>
+			</div>
+
+			<!-- 3.金额选择  -->
+			<div class="row money">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="mid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textOne">30.00元</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textTwo">300+赠0书币</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="mid">
+						<div class="row">
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-re"></use>
+							</svg>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textOne">50.00元</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textTwo">5000+赠3000书币</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 moneyBottom">
+					<div class="mid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textOne">100.00元</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textTwo">10000+赠8000书币</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 moneyBottom">
+					<div class="mid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textOne">200.00元</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textTwo">20000+赠20000书币</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 5.VIP  -->
+			<div class="row vip">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 vips">
+					<svg class="iconFour" aria-hidden="true">
+						<use xlink:href="#icon-vip"></use>
+					</svg>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 textThree">365.00元</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 picture">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pictures">
+						<svg class="iconFive" aria-hidden="true">
+							<use xlink:href="#icon-bookshelf"></use>
+						</svg>&nbsp;&nbsp;
+						<span class="textFour">全站免费阅读</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pictures">
+						<svg class="iconFive" aria-hidden="true">
+							<use xlink:href="#icon-huangguan1"></use>
+						</svg>&nbsp;&nbsp;
+						<span class="textFive">尊贵身份</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 6.确认信息  -->
+			<div class="row title">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="width:18%;padding: 0;">确认信息：</div>
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0;">
+					<span>充值方式：</span>
+					<span style="color: #e64f4f;">微信充值</span>,
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0;">
+					<span>充值金额：</span>
+					<span style="color: #e64f4f;">365.00</span>
+				</div>
+			</div>
+		</div>
+		<div style="height: 10px;"></div>
+		<div class="container-fluid">
+			<!-- 7.温馨提示  -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 15px;">
+					<strong>温馨提示</strong>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 12px;font-size: 10px;">
+					<div>1.<span>由于书币为特殊虚拟商品，一旦购买成功即开始享受部分及全部服务，因此不可退换，请购买时注意</span></div>
+					<div>2.<span style="color: #e64f4f;">1元=100书币</span></div>
+					<div>3.<span>充值遇到问题时，请及时联系客服（微信搜索“xxxx”关注公众号）</span></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				</div>
+			</div>
+			<!-- 8.立即支付  -->
+			<div class="row">
+				<button type="button" class="btn btn-danger btn-lg btn-block" style="position: fixed;bottom: 0;">立即支付</button>
+			</div>
+			
+			<!-- 底部导航栏 -->
+			<div class="main_nav_bottom">
+				<nav class="navbar navbar-default navbar-fixed-bottom">
+					<div class="container" align="center">
+						<ul class="nav nav-tabs nav-tabs-justified">
+							<div class="row" align="center">
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
+									<li class="bttomx">
+										<a href="index.html">
+											<svg class="iconTwo" aria-hidden="true">
+												<use xlink:href="#icon-all"></use>
+											</svg>
+											首页
+										</a>
+									</li>
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
+									<li class="bttomx">
+										<a href="class.html">
+											<svg class="iconTwo" aria-hidden="true">
+												<use xlink:href="#icon-viewlist"></use>
+											</svg>
+											分类
+										</a>
+									</li>
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
+									<li class="bttomx">
+										<a href="">
+											<svg class="iconTwo" aria-hidden="true">
+												<use xlink:href="#icon-office"></use>
+											</svg>
+											书架
+										</a>
+									</li>
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
+									<li class="bttomx">
+										<a href="center.html">
+											<svg class="iconTwo" aria-hidden="true">
+												<use xlink:href="#icon-account"></use>
+											</svg>
+											我的
+										</a>
+									</li>
+								</div>
+							</div>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<!-- 引入jQuery核心js文件 -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/iconfontl.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>

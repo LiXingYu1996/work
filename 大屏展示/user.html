@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>大屏展示-用户</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" href="css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="layer/theme/default/layer.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/user.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- 引入jQuery核心js文件 -->
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript">
+			//用户来源分析
+			function user_yhly() {
+				var datas = [{
+						'dataOne': '学生',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '老师',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '商人',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '白领',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '蓝领',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '工人',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '司机',
+						'dataTwo': 10 + '%'
+					},
+					{
+						'dataOne': '程序员',
+						'dataTwo': 10 + '%'
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>用户类型</th>' +
+					'<th>用户来源百分比</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//用户余额统计
+			function user_yhye() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>用户所属城市</th>' +
+					'<th>用户余额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//用户红包领取分析
+			function user_yhhblq() {
+				var datas = [{
+						'dataOne': '积分红包',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '大转盘红包',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '实物红包',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '现金红包',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '优惠券红包',
+						'dataTwo': 100
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>用户领取红包的类型</th>' +
+					'<th>领取人数</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//用户提现分析
+			function user_yhtx() {
+				var datas = [{
+						'dataOne': '2',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '4',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '6',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '8',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '10',
+						'dataTwo': 100
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>提现时间</th>' +
+					'<th>提现人数</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row animated bounce">
+				<!--<ul class="nav nav-tabs">-->
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation">
+						<a href="agent.html">代理商</a>
+					</li>
+					<li role="presentation">
+						<a href="business.html">商家</a>
+					</li>
+					<li role="presentation" class="active">
+						<a href="user.html">用户</a>
+					</li>
+					<li role="presentation">
+						<a href="account.html">账户</a>
+					</li>
+					<li role="presentation">
+						<a href="activity.html">活动</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="user_yhly"></div>
+				<button type="button" class="btn btn-info" onclick="user_yhly();" style="position:absolute;left:73rem;">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="user_yhye"></div>
+				<button type="button" class="btn btn-info" onclick="user_yhye();" style="position:absolute;right:1.5rem;">详情</button>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="user_yhhblq"></div>
+				<button type="button" class="btn btn-info" onclick="user_yhhblq();" style="position:absolute;left:73rem;">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="user_yhtx"></div>
+				<button type="button" class="btn btn-info" onclick="user_yhtx();" style="position:absolute;right:1.5rem;">详情</button>
+			</div>
+		</div>
+		<!-- 引入单文件 -->
+		<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+		<script type="text/javascript">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+
+			//第一个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+				],
+				function(user_yhly) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = user_yhly.init(document.getElementById('user_yhly'));
+					var datasOne = ['学生', '老师', '商人', '白领', '蓝领', '工人', '司机', '程序员', '导购员', 'boss'];
+					var datasTwo = [{
+							value: 335,
+							name: '学生'
+						},
+						{
+							value: 310,
+							name: '老师'
+						},
+						{
+							value: 234,
+							name: '商人'
+						},
+						{
+							value: 123,
+							name: '白领'
+						},
+						{
+							value: 543,
+							name: '蓝领'
+						},
+						{
+							value: 212,
+							name: '工人'
+						},
+						{
+							value: 300,
+							name: '司机'
+						},
+						{
+							value: 200,
+							name: '程序员'
+						},
+						{
+							value: 100,
+							name: '导购员'
+						},
+						{
+							value: 240,
+							name: 'boss'
+						}
+					];
+					var option = {
+						title: {
+							text: '用户来源分析',
+							subtext: '用户总人数：100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b} : {c}人，占总数的{d}%"
+						},
+						legend: {
+							orient: 'vertical',
+							x: 'left',
+							data: datasOne,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						calculable: true,
+						series: [{
+							name: '用户来源',
+							type: 'pie',
+							radius: '55%',
+							center: ['50%', '60%'],
+							data: datasTwo,
+							itemStyle: {
+								normal: {
+									label: {
+										formatter: function(params) {
+											return(params.percent - 0).toFixed(0) + '%'
+										},
+									},
+								},
+							},
+						}]
+					};
+
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第二个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+				function(user_yhye) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = user_yhye.init(document.getElementById('user_yhye'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '用户总余额和排行',
+							subtext: '用户总余额:100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '用户所属城市',
+							type: 'category',
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总剩余金额（万）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}万"
+						},
+						series: [{
+							name: '用户总余额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第三个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(user_yhhblq) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = user_yhhblq.init(document.getElementById('user_yhhblq'));
+					//传值位置
+					var citys = ['积分红包', '实物红包', '优惠券红包', '现金红包', '大转盘红包'];
+					var datas = [30000, 25000, 20000, 15000, 10000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '用户领取红包分析',
+							subtext: '领取红包总数量:10000000个',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 16,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '红包类型',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '红包总数（个）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}个"
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'right',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						series: [{
+							name: '用户领取红包总数量',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第四个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/line' // 使用柱状图就加载line模块，按需加载
+				],
+
+				function(user_yhtx) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = user_yhtx.init(document.getElementById('user_yhtx'));
+					var datas = [1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600];
+					var option = {
+						title: {
+							x: 'center',
+							text: '用户提现分析',
+							subtext: '提现总人数:1000000人',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 16,
+								color: 'red'
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} </br> {b}时 : {c}万"
+						},
+						calculable: true,
+
+						xAxis: [{
+							name: '时间',
+							type: 'category',
+							boundaryGap: true,
+							data: ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24'],
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#DFDFDF'
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+						}],
+
+						yAxis: [{
+							name: '提现人数(个)',
+							type: 'value',
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#fff'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+
+						series: [{
+							name: '提现人数',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									//让图表显示数据
+									label: {
+										show: true
+									},
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datas
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						}
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				}
+			);
+		</script>
+	</body>
+
+</html>

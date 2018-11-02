@@ -1,0 +1,162 @@
+body {
+	background-color: whitesmoke;
+}
+
+.all {
+	background-color: white;
+}
+
+.first {
+	margin-top: 15px;
+}
+
+.second {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.top {
+	border: 2px #e64f4f solid;
+	height: 30px;
+	widows: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.mid {
+	border: 2px #e64f4f solid;
+	border-radius: 10px;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vip {
+	margin-top: 20px;
+	border: 2px #e64f4f solid;
+	border-radius: 10px;
+	height: 90px;
+	margin-right: 0px;
+	margin-left: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.vips {
+	padding: 0;
+}
+
+.container-fluid{
+	background-color: white;
+}
+
+.title{
+	font-size: 10px;
+	margin: 30px 0 0 0;
+}
+
+.textOne {
+	font-size: 18px;
+	font-weight: bolder;
+	color: #e64f4f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textTwo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textThree {
+	font-size: 18px;
+	font-weight: bolder;
+	color: #e64f4f;
+	padding-right: 0;
+}
+
+.textFour {
+	font-size: 10px;
+	font-weight: bolder;
+	color: orange;
+}
+
+.textFive {
+	font-size: 10px;
+	font-weight: bolder;
+	color: orange;
+}
+
+.picture {
+	padding: 0;
+}
+
+.pictures {
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.money {
+	margin-top: 10px;
+}
+
+.moneyBottom {
+	margin-top: 15px;
+}
+
+.iconOne {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconTwo {
+	width: 3em;
+	height: 3em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	margin: 0;
+}
+
+.iconThree {
+	width: 2.5em;
+	height: 2.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	margin: 0;
+	position: absolute;
+	top: 0%;
+	left: 68%;
+}
+
+.iconFour {
+	width: 6em;
+	height: 4em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconFive {
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: red;
+}

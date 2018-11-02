@@ -1,0 +1,122 @@
+body {
+	background-color: whitesmoke;
+}
+
+.nav-tabs {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+.iconOne {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: orange;
+}
+
+.iconTwo {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: brown;
+}
+
+.iconThree {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: red;
+}
+
+.iconFour {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: blue;
+}
+
+.iconFive {
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.image {
+	width: 80px;
+	height: 80px;
+}
+
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	background-color: white;
+}
+
+.topx {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	background-color: white;
+}
+
+.topText {
+	display: block;
+	width: 100%;
+	word-break: keep-all;
+	/* 不换行 */
+	white-space: nowrap;
+	/* 不换行 */
+	overflow: hidden;
+	/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow: ellipsis;
+}
+
+/* 指正常的未被访问过的链接*/
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+/*指已经访问过的链接*/
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+/*指鼠标在链接*/
+a:hover {
+	text-decoration: none;
+	color: red;
+}
+
+/* 指正在点的链接*/
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+.bttomx a:hover {
+	text-decoration: none;
+	color: #00CE05;
+}
+
+.iconTwox {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}

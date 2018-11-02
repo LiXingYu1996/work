@@ -1,0 +1,38 @@
+.icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.top {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+}
+
+.option {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #eee;
+}
+
+.options {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 1px solid #eee;
+}
+
+.bootomx {
+	color: red;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

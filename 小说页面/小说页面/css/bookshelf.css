@@ -1,0 +1,166 @@
+body {
+	background-color: whitesmoke;
+}
+
+h4 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: orange;
+}
+
+.nav-tabs {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+.bttomx a:hover {
+	text-decoration: none;
+	color: #00CE05;
+}
+
+.iconTwox {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.row {
+	background-color: white;
+}
+
+.iconOne {
+	width: 2em;
+	height: 2em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	margin-left: 89%;
+	margin-top: 10px;
+}
+
+.iconTwo {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconThree {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.iconFour {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.texta {
+	padding-bottom: 10px;
+	line-height: 24px;
+	text-indent: 2em;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.chapter {
+	display: flex;
+	align-items: center;
+	margin-top: 10p;
+	padding-top: 10px;
+	border-top: 1px solid #eee;
+}
+
+.chapters {
+	border: 0;
+	border-top: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+a {
+	text-decoration: none;
+	color: #666666;
+}
+
+.navdown a {
+	color: #ff0000;
+}
+
+#nav {
+	margin-top: 10px;
+}
+
+
+/* 指正常的未被访问过的链接*/
+
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+
+/*指已经访问过的链接*/
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+
+/*指鼠标在链接*/
+
+a:hover {
+	text-decoration: none;
+	color: red;
+}
+
+
+/* 指正在点的链接*/
+
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+.bookzb {
+	width: 100%;
+	display: block;
+	word-break: keep-all;
+	/* 不换行 */
+	white-space: nowrap;
+	/* 不换行 */
+	overflow: hidden;
+	/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow: ellipsis;
+	/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+	white-space: nowrap;
+}
+
+.loading{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0 10px 0;
+}

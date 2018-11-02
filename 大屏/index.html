@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>大屏数据展示</title>
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="layer/theme/default/layer.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+		<style>
+			.digits {
+				display: inline-block;
+				height: 20px;
+				margin-right: 50px;
+			}
+			
+			.digits i {
+				background: url(img/numbers.png) no-repeat;
+				display: inline-block;
+				float: left;
+				height: 30px;
+				width: 18px;
+			}
+			
+			.digits b {
+				background: url(img/numbers.png) no-repeat 0 -398px;
+				display: inline-block;
+				float: left;
+				height: 30px;
+				width: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			//数字变化
+			function setNumber(dom, number) {
+				var n = String(number),
+					len = n.length;
+
+				//如果新的数字短于当前的，要移除多余的i
+				if(dom.find("i").length > len) {
+					dom.find("i:gt(" + (len - 1) + ")").remove();
+				}
+
+				//移除千分位分隔符
+				dom.find("b").remove();
+
+				//开始填充每一位
+				for(var i = 0; i < len; ++i) {
+					//位数不足要补
+					if(dom.find("i").length < len) {
+						dom.append("<i></i>");
+					}
+
+					var obj = dom.find("i").eq(i);
+					var y = -40 * parseInt(n.charAt(i), 10);
+
+					//加分隔符
+					if(i < len - 1 && (len - i - 1) % 3 == 0)
+						$("<b></b>").insertAfter(obj);
+
+					//利用动画变换数字
+					obj.animate({
+						backgroundPositionY: y + "px"
+					}, 350);
+				}
+			};
+
+			$(function() {
+				//测试
+				window.setInterval(function() {
+					setNumber($("#a"), Math.floor(Math.random() * 1000000));
+					setNumber($("#b"), Math.floor(Math.random() * 1000000));
+					setNumber($("#c"), Math.floor(Math.random() * 1000000));
+					setNumber($("#d"), Math.floor(Math.random() * 1000000));
+					setNumber($("#e"), Math.floor(Math.random() * 1000000));
+					setNumber($("#f"), Math.floor(Math.random() * 1000000));
+					setNumber($("#g"), Math.floor(Math.random() * 1000000));
+					setNumber($("#h"), Math.floor(Math.random() * 1000000));
+					setNumber($("#i"), Math.floor(Math.random() * 1000000));
+					setNumber($("#j"), Math.floor(Math.random() * 1000000));
+					setNumber($("#k"), Math.floor(Math.random() * 1000000));
+					setNumber($("#l"), Math.floor(Math.random() * 1000000));
+					setNumber($("#m"), Math.floor(Math.random() * 1000000));
+				}, 2000);
+			});
+
+			//代理商区域分布
+			function agent_dt() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '上海',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>代理所属城市</th>' +
+					'<th>代理个数</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//商家区域分布
+			function business_dt() {
+				var datas = [{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					}, {
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '武汉',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '上海',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>商家所属城市</th>' +
+					'<th>商家个数</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//各种活动数据分析图
+			function activity_hd() {
+				var datas = [{
+					'dataOne': '现金活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '优惠券活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '积分活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '积分',
+					'dataFour': 400
+				}, {
+					'dataOne': '实物活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '大转盘活动',
+					'dataTwo': 200,
+					'dataThree': '',
+					'dataFour': 400
+				}, {
+					'dataOne': '砍价活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>活动名称</th>' +
+					'<th>活动总数量</th>' +
+					'<th>总金额/总积分/总价值</th>' +
+					'<th>参与量</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'<td>' + datas[i].dataThree + '</td>' +
+						'<td>' + datas[i].dataFour + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				//弹出框
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//分时统计
+			function activity_fs() {
+				var datas = [{
+						'dataOne': '1' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '2' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '3' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '4' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '5' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '6' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '7' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					},
+					{
+						'dataOne': '8' + '号',
+						'dataTwo': 10,
+						'dataThree': 10,
+						'dataFour': 10,
+						'dataFive': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>时间</th>' +
+					'<th>消耗金额</th>' +
+					'<th>充值金额</th>' +
+					'<th>用户红包领取</th>' +
+					'<th>用户提现</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'<td>' + datas[i].dataThree + '</td>' +
+						'<td>' + datas[i].dataFour + '</td>' +
+						'<td>' + datas[i].dataFive + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--正文从此处开始-->
+		<hr />
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<table border="1" width="100%" height="100%" id="talOne">
+						<tbody>
+							<tr>
+								<td>代理总数:<span id="a" class="digits"></span></td>
+								<td>商家总数:<span id="b" class="digits"></span></td>
+								<td>用户总数:<span id="c" class="digits"></span></td>
+							</tr>
+							<tr>
+								<td>代理充值金额总额:<span id="d" class="digits"></span></td>
+								<td>代理消耗金额总额:<span id="e" class="digits"></span></td>
+								<td>代理余额:<span id="f" class="digits"></span></td>
+							</tr>
+							<tr>
+								<td>商家充值金额总额:<span id="g" class="digits"></span></td>
+								<td>商家消耗金额总额:<span id="h" class="digits"></span></td>
+								<td>商家余额:<span id="i" class="digits"></span></td>
+							</tr>
+							<tr>
+								<td>代理红包总数量:<span id="j" class="digits"></span></td>
+								<td>商家红包总数量:<span id="k" class="digits"></span></td>
+								<td>代理发展商家总数:<span id="l" class="digits"></span></td>
+							</tr>
+							<tr>
+								<td>用户总余额:<span id="m" class="digits"></span></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row" style="height: 2rem;"></div>
+			<div class="row">
+				<!-- 第一个表格 -->
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-lg-12">
+							<table border="1" width="100%" height="100%" class="talTwo">
+								<thead>
+									<tr>
+										<th colspan="4">代理商</th>
+									</tr>
+									<tr>
+										<th>名称</th>
+										<th>消耗金额</th>
+										<th>充值金额</th>
+										<th>余额</th>
+									</tr>
+								</thead>
+							</table>
+							<div id="one">
+								<table border="1" width="100%" height="100%" class="talTwo" style="border-top: 0;">
+									<tbody>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>a代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>b代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>c代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>d代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>e代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>f代理商</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="height: 2rem;"></div>
+					<!-- 第二个表格 -->
+					<div class="row">
+						<div class="col-lg-12">
+							<table border="1" width="100%" height="100%" class="talTwo">
+								<thead>
+									<tr>
+										<th colspan="4">商家</th>
+									</tr>
+									<tr>
+										<th>名称</th>
+										<th>消耗金额</th>
+										<th>充值金额</th>
+										<th>余额</th>
+									</tr>
+								</thead>
+							</table>
+							<div id="two">
+								<table border="1" width="100%" height="100%" class="talTwo" style="border-top: 0;">
+									<tbody>
+										<tr>
+											<td>a商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>b商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>c商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>d商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>e商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+										<tr>
+											<td>f商家</td>
+											<td>2000000000万</td>
+											<td>1000000000万</td>
+											<td>1000000000万</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 第三个表格 -->
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<table border="1" width="100%" height="100%" class="talTwo">
+						<thead>
+							<tr>
+								<th colspan="2">代理发展商家总数</th>
+							</tr>
+							<tr>
+								<th>代理商</th>
+								<th>商家个数</th>
+							</tr>
+						</thead>
+					</table>
+					<div id="three">
+						<table border="1" width="100%" height="100%" class="talTwo" style="border-top: 0;">
+							<tbody>
+								<tr>
+									<td>a代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>a代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e代理商</td>
+									<td>10000000000个</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- 第四个表格 -->
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<table border="1" width="100%" height="100%" class="talTwo">
+						<thead>
+							<tr>
+								<th colspan="2">代理红包数量</th>
+							</tr>
+							<tr>
+								<th>代理商</th>
+								<th>红包数</th>
+							</tr>
+						</thead>
+					</table>
+					<div id="four">
+						<table border="1" width="100%" height="100%" class="talTwo" style="border-top: 0;">
+							<tbody>
+								<tr>
+									<td>a代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>a代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d代理商</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e代理商</td>
+									<td>10000000000个</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- 第五个表格 -->
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<table border="1" width="100%" height="100%" class="talTwo">
+						<thead>
+							<tr>
+								<th colspan="2">商家红包数量</th>
+							</tr>
+							<tr>
+								<th>商家</th>
+								<th>红包数</th>
+							</tr>
+						</thead>
+					</table>
+					<div id="five">
+						<table border="1" width="100%" height="100%" class="talTwo" style="border-top: 0;">
+							<tbody>
+								<tr>
+									<td>a商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>a商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>b商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>c商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>d商家</td>
+									<td>10000000000个</td>
+								</tr>
+								<tr>
+									<td>e商家</td>
+									<td>10000000000个</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<div class="row">
+				<button type="button" class="btn btn-info" onclick="agent_dt();" style="position: relative;left: 34rem;">详情</button>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="dtOne"></div>
+			</div>
+
+			<div class="row">
+				<button type="button" class="btn btn-info" onclick="business_dt();" style="position: relative;left: 34rem;">详情</button>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="dtTwo"></div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<button type="button" class="btn btn-info" onclick="activity_hd();">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="hdOne"></div>
+				<button type="button" class="btn btn-info" onclick="activity_fs();" style="position: relative;left: 69rem;">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="fsOne"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//表格中鼠标放上去显示隐藏的部分
+			$(function() {
+				//table的最后一列不给其title赋值
+				var cellIndex = parseInt($(".tbStyle th").length) - 1;
+				$(".talTwo tr td").each(function() {
+					if(this.cellIndex != cellIndex) {
+						$(this).attr("title", $(this).text());
+						//alert($(this).parent().get(0).rowIndex);输出所在行
+					}
+				});
+			});
+
+			//隔行换色的Jquery
+			$(function() {
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			});
+
+			//表格滚动
+			//document.getElementById()应用
+			function getElement(element) {
+				if(arguments.length > 1) {
+					for(var i = 0, length = arguments.length, elements = []; i < length; i++) {
+						elements.push(getElement(arguments[i]));
+					}
+					return elements;
+				}
+				if(typeof element == "string") {
+					return document.getElementById(element);
+				} else {
+					return element;
+				}
+			}
+			//类创建函数
+			var Class = {
+				create: function() {
+					return function() {
+						this.initialize.apply(this, arguments);
+					}
+				}
+			}
+			//对象属性方法扩展
+			Function.prototype.bind = function(object) {
+				var method = this;
+				return function() {
+					method.apply(object, arguments);
+				}
+			}
+			var Scroll = Class.create();
+			Scroll.prototype = {
+				//第一个参数定义要滚动的区域，第二个参数定义每次滚动的高度，第三个参数定义每次滚动的时间间隔（按秒计算）
+				initialize: function(element, height, delay) {
+					this.element = getElement(element);
+					this.element.innerHTML += this.element.innerHTML;
+					this.height = height;
+					this.delay = delay * 1000;
+					this.maxHeight = this.element.scrollHeight / 2;
+					this.counter = 0;
+					this.scroll();
+					this.timer = "";
+					this.element.onmouseover = this.stop.bind(this);
+					this.element.onmouseout = function() {
+						this.timer = setTimeout(this.scroll.bind(this), 1000);
+					}.bind(this);
+				},
+				scroll: function() {
+					if(this.element.scrollTop < this.maxHeight) {
+						this.element.scrollTop++;
+						this.counter++;
+					} else {
+						this.element.scrollTop = 0;
+						this.counter = 0;
+					}
+
+					if(this.counter < this.height) {
+						this.timer = setTimeout(this.scroll.bind(this), 1);
+					} else {
+						this.counter = 0;
+						this.timer = setTimeout(this.scroll.bind(this), this.delay);
+					}
+				},
+				stop: function() {
+					clearTimeout(this.timer);
+				}
+			}
+			//定义滚动表格的id，滚动距离，和滚动间隔时间
+			new Scroll('one', 1, 0.05) //适当调整第2和第3个参数呈现效果稍有差异
+			new Scroll('two', 1, 0.05)
+			new Scroll('three', 1, 0.05)
+			new Scroll('four', 1, 0.05)
+			new Scroll('five', 1, 0.05)
+			
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+
+			//代理商区域分析图表
+			//第一个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+				],
+				function(dtOne) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = dtOne.init(document.getElementById('dtOne'));
+					var datasOne = ['武汉', '长沙', '北京', '上海', '成都', '深圳', '江西', '大连', '杭州', '西安'];
+					var datasTwo = [{
+							value: 335,
+							name: '武汉'
+						},
+						{
+							value: 310,
+							name: '长沙'
+						},
+						{
+							value: 234,
+							name: '北京'
+						},
+						{
+							value: 123,
+							name: '上海'
+						},
+						{
+							value: 543,
+							name: '成都'
+						},
+						{
+							value: 212,
+							name: '深圳'
+						},
+						{
+							value: 300,
+							name: '江西'
+						},
+						{
+							value: 200,
+							name: '大连'
+						},
+						{
+							value: 100,
+							name: '杭州'
+						},
+						{
+							value: 240,
+							name: '西安'
+						}
+					];
+					var option = {
+						title: {
+							text: '代理商区域分布',
+							subtext: '代理商总数：100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#000000',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b} : {c}人，占总数的{d}%"
+						},
+						legend: {
+							orient: 'vertical',
+							x: 'left',
+							data: datasOne,
+							textStyle: {
+								color: '#000000'
+							}
+						},
+						calculable: true,
+						series: [{
+							name: '代理商区域分布',
+							type: 'pie',
+							radius: '55%',
+							center: ['50%', '60%'],
+							data: datasTwo,
+							itemStyle: {
+								normal: {
+									label: {
+										formatter: function(params) {
+											return(params.percent - 0).toFixed(0) + '%'
+										},
+									},
+								},
+							},
+						}]
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//商家区域分析图表
+			//第二个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+				],
+				function(dtTwo) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = dtTwo.init(document.getElementById('dtTwo'));
+					var datasOne = ['武汉', '长沙', '北京', '上海', '成都', '深圳', '江西', '大连', '杭州', '西安'];
+					var datasTwo = [{
+							value: 335,
+							name: '武汉'
+						},
+						{
+							value: 310,
+							name: '长沙'
+						},
+						{
+							value: 234,
+							name: '北京'
+						},
+						{
+							value: 123,
+							name: '上海'
+						},
+						{
+							value: 543,
+							name: '成都'
+						},
+						{
+							value: 212,
+							name: '深圳'
+						},
+						{
+							value: 300,
+							name: '江西'
+						},
+						{
+							value: 200,
+							name: '大连'
+						},
+						{
+							value: 100,
+							name: '杭州'
+						},
+						{
+							value: 240,
+							name: '西安'
+						}
+					];
+					var option = {
+						title: {
+							text: '商家区域分布',
+							subtext: '代理商总数：100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#000000',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b} : {c}人，占总数的{d}%"
+						},
+						legend: {
+							orient: 'vertical',
+							x: 'left',
+							data: datasOne,
+							textStyle: {
+								color: '#000000'
+							}
+						},
+						calculable: true,
+						series: [{
+							name: '商家区域分布',
+							type: 'pie',
+							radius: '55%',
+							center: ['50%', '60%'],
+							data: datasTwo,
+							itemStyle: {
+								normal: {
+									label: {
+										formatter: function(params) {
+											return(params.percent - 0).toFixed(0) + '%'
+										},
+									},
+								},
+							},
+						}]
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//各种活动数据分析图
+			//第三个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(hdOne) { // 基于准备好的dom，初始化echarts图表
+					var myChart = hdOne.init(document.getElementById('hdOne'));
+					//传值位置
+					var activitys = ['现金活动', '优惠券活动', '积分活动', '实物活动', '大转盘活动', '砍价活动'];
+					var datasOne = [200, 320, 345, 343, 234, 678]; //总数量
+					var datasTwo = [3000, 3990, 3991, 2889, 2999, 6888]; //总金额
+					var datasThree = [300, 200, 200, 150, 100, 500]; //总参与量
+					var zrColor = require('zrender/tool/color');
+					var colorList = [
+						'#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+						'#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0'
+					];
+					var itemStyle = {
+						normal: {
+							color: function(params) {
+								if(params.dataIndex < 0) {
+									// for legend
+									return zrColor.lift(
+										colorList[colorList.length - 1], params.seriesIndex * 0.1
+									);
+								} else {
+									// for bar
+									return zrColor.lift(
+										colorList[params.dataIndex], params.seriesIndex * 0.1
+									);
+								}
+							}
+						}
+					};
+					var option = {
+						title: {
+							text: '活动数据分析图表',
+							x: 'center',
+							textStyle: {
+								fontSize: 30,
+								fontWeight: 'bolder',
+								color: '#000000',
+							},
+						},
+						tooltip: {
+							trigger: 'axis',
+							backgroundColor: 'rgba(0,0,0,0)',
+							axisPointer: {
+								type: 'shadow'
+							},
+							formatter: function(params) {
+								// for text color
+								var color = colorList[params[0].dataIndex];
+								var res = '<div style="color: ' + color + ' ">';
+								res += '<strong>' + params[0].name + '</strong>'
+								for(var i = 0, l = params.length; i < l; i++) {
+									res += '<br/>' + params[i].seriesName + ' : ' + params[i].value
+								}
+								res += '</div>';
+								return res;
+							}
+						},
+						calculable: true,
+						xAxis: [{
+							name: '活动类型',
+							type: 'category',
+							data: activitys,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 0,
+								margin: 8,
+								textStyle: {
+									fontSize: '15',
+									fontWeight: 'lighter',
+									color: '#000000',
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '活动数据',
+							type: 'value',
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#000000'
+								},
+							},
+						}],
+						series: [{
+								name: '活动总数量',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasOne
+							},
+							{
+								name: '总价值',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasTwo
+							},
+							{
+								name: '参与量',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasThree
+							},
+						],
+						legend: {
+							x: 'left',
+							data: ['活动总数量', '总价值', '参与量'],
+							textStyle: {
+								color: '#000000'
+							}
+						},
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize ", function() {
+						myChart.resize();
+					});
+				});
+
+			//各种活动数据分析图
+			//第四个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/line' // 使用柱状图就加载line模块，按需加载
+				],
+
+				function(fsOne) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = fsOne.init(document.getElementById('fsOne'));
+					var datasOne = [1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600, 1000, 3700, 4800, 3400, 2900, 1000, 1600];
+					var datasTwo = [2000, 2600, 1400, 2300, 5200, 4300, 3000, 2700, 2800, 1400, 2900, 3300, 3600, 2400, 3300, 4200, 2300, 3000, 2700, 2800, 1400, 1900, 3000, 2600, 4000, 2700, 2800, 1400, 2900, 3000, 2600];
+					var datasThree = [2000, 2060, 1040, 2030, 5020, 4030, 3000, 2070, 2080, 1040, 2900, 3030, 3060, 2040, 3030, 4200, 2030, 3000, 2070, 2080, 1040, 1090, 3000, 2600, 4000, 2070, 2080, 1040, 2090, 3000, 2060];
+					var datasFour = [2800, 2030, 1400, 2300, 5200, 4300, 3000, 2700, 2000, 1400, 2900, 3300, 3600, 2400, 3300, 4200, 2300, 3000, 2600, 2070, 4000, 4000, 3000, 2000, 4000, 2000, 2000, 1000, 2000, 3000, 2000];
+					var dates = ['1号', '2号', '3号', '4号', '5号', '6号', '7号', '8号', '9号', '10号', '11号', '12号', '13号', '14号', '15号', '16号', '17号', '18号', '19号', '20号', '21号', '22号', '23号', '24号', '25号', '26号', '27号', '28号', '29号', '30号', '31号'];
+					var option = {
+						title: {
+							x: 'center',
+							text: '分时统计',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#000000',
+							},
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} </br> {b} : {c}"
+						},
+						calculable: true,
+						legend: {
+							//布局方式，默认为水平布局，可选为：'horizontal' | 'vertical'
+							orient: 'vertical',
+							x: 'right',
+							y: 'top',
+							data: ['消耗金额', '充值金额', '红包领取人数', '用户提现人数'],
+							textStyle: {
+								color: '#000000',
+							},
+						},
+						xAxis: [{
+							name: '时间',
+							type: 'category',
+							boundaryGap: true,
+							data: dates,
+							axisLabel: {
+								interval: 'auto',
+								rotate: 40,
+								margin: 8,
+								show: true,
+								textStyle: {
+									color: '#000000'
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+						}],
+
+						yAxis: [{
+							name: '数据',
+							type: 'value',
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#000000'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+
+						series: [{
+							name: '消耗金额',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datasOne
+						}, {
+							name: '充值金额',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datasTwo
+						}, {
+							name: '红包领取人数',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datasThree
+						}, {
+							name: '用户提现人数',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datasFour
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						}
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+		</script>
+	</body>
+
+</html>

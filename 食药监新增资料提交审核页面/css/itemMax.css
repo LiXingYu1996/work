@@ -1,0 +1,48 @@
+body {
+	background-color: #F7F7F9;
+	font-family: "微软雅黑";
+	margin: 0px;
+	text-align: center;
+}
+
+@-moz-document url-prefix() {
+	fieldset {
+		display: table-cell;
+	}
+}
+
+#xiangzuojiantou {
+	font-size: 2.5rem;
+	float: left;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.tb {
+	font-size: 5rem;
+}
+
+#theader {
+	font-size: 1.7rem;
+}
+
+#header {
+	border: 1px solid dodgerblue;
+	background-color: dodgerblue;
+	font-size: 2rem;
+	margin: 0 auto;
+	line-height: 3rem;
+	height: 3rem;
+	width: 100%;
+	color: white;
+}
+
+
+/* 指正常的未被访问过的链接*/
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+}

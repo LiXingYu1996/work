@@ -1,0 +1,35 @@
+#business_dt {
+	border: none;
+	width: 66%;
+	height: 50rem;
+}
+
+#business_hbzs {
+	border: none;
+	width: 33%;
+	height: 50rem;
+}
+
+#business_czze {
+	border: none;
+	width: 33%;
+	height: 35rem;
+}
+
+#business_xhze {
+	border: none;
+	width: 33%;
+	height: 35rem;
+}
+
+#business_zye {
+	border: none;
+	width: 33%;
+	height: 35rem;
+}
+
+body {
+	background-image: url(../img/背景1.jpg);
+	font-family: "微软雅黑";
+	margin: 0px;
+}

@@ -1,0 +1,37 @@
+.top {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+}
+
+.text {
+	font-size: 5px;
+	color: gray;
+}
+
+.boot {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.bootomx {
+	color: red;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bootoms {
+	padding-top: 10px;
+}
+
+
+.options{
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 1px solid #eee;
+}

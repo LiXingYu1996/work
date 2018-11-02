@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>书籍介绍</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/detail.css" />
+		<link rel="stylesheet" href="layer/theme/default/layer.css" />
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script>
+			function bookDs() {
+				var str = "";
+				str = "<div class='container-fluid'>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<span style='font-size:15px;margin-top:10px'><strong>打赏品</strong></span>" +
+					"</div>" +
+					"<div class='row' id='nav'>" +
+					"<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" +
+					"<a>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<img src='img/红包.png' alt='红包' class='img-thumbnail' style='height: 30px; width: 30px;'>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>红包</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>100书币</div>" +
+					"</a>" +
+					"</div>" +
+					"<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" +
+					"<a>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<img src='img/鲜花.png' alt='鲜花' class='img-thumbnail' style='height: 30px; width: 30px;'>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>鲜花</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>388书币</div>" +
+					"</a>" +
+					"</div>" +
+					"<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" +
+					"<a>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<img src='img/钢笔.png' alt='钢笔' class='img-thumbnail' style='height: 30px; width: 30px;'>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>钢笔</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>588书币</div>" +
+					"</a>" +
+					"</div>" +
+					"<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" +
+					"<a>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<img src='img/钻戒.png' alt='钻戒' class='img-thumbnail' style='height: 30px; width: 30px;'>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>钻戒</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;font-size:10px'>888书币</div>" +
+					"</a>" +
+					"</div>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;margin-top:10px'>" +
+					"<input id='min' name='' type='button' value='-' />" +
+					"<input id='text_box' name='' type='text' value='1' style='width:30px;text-align: center' />" +
+					"<input id='add' name='' type='button' value='+' />" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;margin-top:12px'>" +
+					"<span>打赏书币：" +
+					"<span style='color: orange;'>" + '888' + "书币</span>" +
+					"</span>" +
+					"</div>" +
+					"<div class='row' style='display: flex;align-items: center;justify-content: center;'>" +
+					"<button type='button' class='btn btn-danger btn-sm' style='background-color: orange;border: none;margin-top:10px' onclick='sureDs()'>确认打赏</button>" +
+					"</div>" +
+					"</div>";
+
+				layer.open({
+					title: false,
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['320px', '240px'], //宽高
+					content: str,
+					shadeClose: true
+				});
+			};
+
+			function sureDs() {
+				alert("打赏");
+			};
+
+			/*变色*/
+			$(function() {
+				$("#nav div").click(function() {
+					$("#nav div").eq($(this).index()).addClass("navdown").siblings().removeClass("navdown");
+				})
+			});
+
+			/*数量加减*/
+			$(function() {
+				//获得文本框对象
+				var t = $("#text_box");
+				//初始化数量为1,并失效减
+				$('#min').attr('disabled', true);  //数量增加操作
+				 
+				$("#add").click(function() {   // 给获取的val加上绝对值，避免出现负数
+					  
+					t.val(Math.abs(parseInt(t.val())) + 1);  
+					if(parseInt(t.val()) != 1) {  
+						$('#min').attr('disabled', false);  
+					}; 
+				})  //数量减少操作
+				  $("#min").click(function() { 
+					t.val(Math.abs(parseInt(t.val())) - 1); 
+					if(parseInt(t.val()) == 1) { 
+						$('#min').attr('disabled', true); 
+					}; 
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<!-- 1.返回首页 -->
+			<div class="row">
+				<a href="index.html">
+					<svg class="iconOne" aria-hidden="true">
+						<use xlink:href="#icon-shouye"></use>
+					</svg>
+				</a>
+			</div>
+
+			<!-- 2.书籍名称图片状态 -->
+			<div class="row top">
+				<!-- 2.1书籍图片 -->
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<img src="img/4.jpg" style="height:140px;width:100%;">
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<div class="row">
+						<!-- 2.2书籍名称 -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0px;">
+							<span style="font-size: 20px;">
+								<strong>盗墓笔记</strong>
+							</span>
+						</div>
+						<!-- 2.3书籍类型 -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0px;">
+							<span style="font-size: 15px;">
+								<strong>类型：</strong>
+								<span>盗墓</span>
+							</span>
+
+						</div>
+						<!-- 2.4书籍状态 -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0px;">
+							<span style="font-size: 15px;">
+								<strong>状态：</strong>
+								<span>完结</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 3.书籍简介 -->
+			<div class="row">
+				<hr />
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+					<p class="texta">
+						红楼梦，中国古典四大名著之首，清代作家曹雪芹创作的章回体长篇小说 ，又名《石头记》《金玉缘》。此书分为120回“程本”和80回“脂本”两种版本系统，程本为程伟元排印的印刷本，脂本为脂砚斋在不同时期抄评的早期手抄本，脂本是程本的底本 。
+					</p>
+				</div>
+			</div>
+
+			<!-- 4.书籍章节 -->
+			<a href="list.html">
+				<div class="row chapter">
+					<svg class="iconTwo" aria-hidden="true" style="margin-bottom: 10px;">
+						<use xlink:href="#icon-mulu1-copy"></use>
+					</svg>
+					<span style="margin-bottom: 10px;">
+					<strong>&nbsp;共2019章</strong>
+					<span style="color:red">&nbsp;最新：大结局</span>
+					</span>
+				</div>
+			</a>
+			<!-- 5.打赏目录 -->
+			<div style="height: 10px;"></div>
+			<div class="row chapterx">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<span>打赏记录</span>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<span style="color: red;">（总赏金：900书币）</span>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<button type="button" class="btn btn-danger btn-sm" style="background-color: orange;border: none;" onclick="bookDs()">我要打赏</button>
+				</div>
+			</div>
+
+			<!-- 6.打赏记录 -->
+			<div class="row">
+				<div class="row chapters">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<img src="img/6.jpg" alt="头像" class="img-circle" style="height: 25px; width: 25px;">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<strong>嘻嘻啊哈</strong>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<span style="margin-left: 21%;">2018-05-28</span>
+					</div>
+				</div>
+				<div class="row chapterg">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>赏
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-hongbao"></use>
+							</svg>
+							*1给作者
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="row chapters">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<img src="img/6.jpg" alt="头像" class="img-circle" style="height: 25px; width: 25px;">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<strong>嘻嘻啊哈</strong>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<span style="margin-left: 21%;">2018-05-28</span>
+					</div>
+				</div>
+				<div class="row chapterg">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>赏
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-hongbao"></use>
+							</svg>
+							*1给作者
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="row chapters">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<img src="img/6.jpg" alt="头像" class="img-circle" style="height: 25px; width: 25px;">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<strong>嘻嘻啊哈</strong>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<span style="margin-left: 21%;">2018-05-28</span>
+					</div>
+				</div>
+				<div class="row chapterg">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>赏
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-hongbao"></use>
+							</svg>
+							*1给作者
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="row chapters">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<img src="img/6.jpg" alt="头像" class="img-circle" style="height: 25px; width: 25px;">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<strong>嘻嘻啊哈</strong>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<span style="margin-left: 21%;">2018-05-28</span>
+					</div>
+				</div>
+				<div class="row chapterg">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>赏
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-hongbao"></use>
+							</svg>
+							*1给作者
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="row chapters">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<img src="img/6.jpg" alt="头像" class="img-circle" style="height: 25px; width: 25px;">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<strong>嘻嘻啊哈</strong>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<span style="margin-left: 21%;">2018-05-28</span>
+					</div>
+				</div>
+				<div class="row chapterg">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>赏
+							<svg class="iconThree" aria-hidden="true">
+								<use xlink:href="#icon-hongbao"></use>
+							</svg>
+							*1给作者
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- 7.查看更多 -->
+			<div class="row chapterz">查看更多</div>
+
+			<!-- 8.评论记录 -->
+			<div style="height: 10px;"></div>
+			<div class="row chapterv">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+					<strong><span>评论记录</span></strong>
+					<span style="color: red;">（1000条）</span>
+				</div>
+				<a href="comment.html">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" class="btn btn-danger btn-sm" style="background-color: orange;border: none;">我要评论</button>
+					</div>
+				</a>
+			</div>
+
+			<!-- 9.你可能喜欢 -->
+			<div style="height: 10px;"></div>
+			<div class="row">
+				<svg class="iconFour" aria-hidden="true">
+					<use xlink:href="#icon-yanjing"></use>
+				</svg>
+				<span>你可能喜欢</span>
+				<div class="container-fluid">
+					<a href="#">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: center;">
+							<img src="img/4.jpg" style="height:140px;width:100%;">
+							<span class="bookzb">红楼梦</span>
+						</div>
+					</a>
+					<a href="#">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: center;">
+							<img src="img/4.jpg" style="height:140px;width:100%;">
+							<span class="bookzb">红楼梦</span>
+						</div>
+					</a>
+					<a href="#">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: center;">
+							<img src="img/4.jpg" style="height:140px;width:100%;">
+							<span class="bookzb">红楼梦红楼梦红楼梦红楼梦</span>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<!-- 10.开始阅读 -->
+			<div style="height: 10px;"></div>
+			<div class="row chapterc">
+				<a href="book.html">
+					<button type="button" class="btn btn-danger">开始阅读</button>
+				</a>
+			</div>
+		</div>
+		<!-- 引入jQuery核心js文件 -->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/iconfontd.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>大屏展示-商家</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" href="css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="layer/theme/default/layer.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/activity.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- 引入jQuery核心js文件 -->
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript">
+			//各种活动数据分析图
+			function activity_hd() {
+				var datas = [{
+					'dataOne': '现金活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '优惠券活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '积分活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '积分',
+					'dataFour': 400
+				}, {
+					'dataOne': '实物活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}, {
+					'dataOne': '大转盘活动',
+					'dataTwo': 200,
+					'dataThree': '',
+					'dataFour': 400
+				}, {
+					'dataOne': '砍价活动',
+					'dataTwo': 200,
+					'dataThree': 5000 + '￥',
+					'dataFour': 400
+				}];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>活动名称</th>' +
+					'<th>活动总数量</th>' +
+					'<th>总金额/总积分/总价值</th>' +
+					'<th>参与量</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'<td>' + datas[i].dataThree + '</td>' +
+						'<td>' + datas[i].dataFour + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				//弹出框
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row animated bounce">
+				<!--<ul class="nav nav-tabs">-->
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation">
+						<a href="agent.html">代理商</a>
+					</li>
+					<li role="presentation">
+						<a href="business.html">商家</a>
+					</li>
+					<li role="presentation">
+						<a href="user.html">用户</a>
+					</li>
+					<li role="presentation">
+						<a href="account.html">账户</a>
+					</li>
+					<li role="presentation" class="active">
+						<a href="activity.html">活动</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 图表位置 -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="activity_hd"></div>
+				<button type="button" class="btn btn-info" onclick="activity_hd();" style="position:absolute;right:1.5rem;" ">详情</button>
+			</div>
+		</div>
+
+		<!-- 引入单文件 -->
+		<script src="http://echarts.baidu.com/build/dist/echarts.js "></script>
+		<!-- 统计图表 -->
+		<script type="text/javascript ">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+
+			//各种活动数据分析图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(activity_hd) { // 基于准备好的dom，初始化echarts图表
+					var myChart = activity_hd.init(document.getElementById('activity_hd'));
+					//传值位置
+					var activitys = ['现金活动', '优惠券活动', '积分活动', '实物活动', '大转盘活动', '砍价活动'];
+					var datasOne = [200, 320, 345, 343, 234, 678]; //总数量
+					var datasTwo = [3000, 3990, 3991, 2889, 2999, 6888]; //总金额
+					var datasThree = [300, 200, 200, 150, 100, 500]; //总参与量
+					var zrColor = require('zrender/tool/color');
+					var colorList = [
+						'#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+						'#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0'
+					];
+					var itemStyle = {
+						normal: {
+							color: function(params) {
+								if(params.dataIndex < 0) {
+									// for legend
+									return zrColor.lift(
+										colorList[colorList.length - 1], params.seriesIndex * 0.1
+									);
+								} else {
+									// for bar
+									return zrColor.lift(
+										colorList[params.dataIndex], params.seriesIndex * 0.1
+									);
+								}
+							}
+						}
+					};
+					var option = {
+						title: {
+							text: '活动数据分析图表',
+							x: 'center',
+							textStyle: {
+								fontSize: 30,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+						},
+						tooltip: {
+							trigger: 'axis',
+							backgroundColor: '#fff',
+							axisPointer: {
+								type: 'shadow'
+							},
+							formatter: function(params) {
+								// for text color
+								var color = colorList[params[0].dataIndex];
+								var res = '<div style="color: ' + color + ' ">';
+								res += '<strong>' + params[0].name + '</strong>'
+								for(var i = 0, l = params.length; i < l; i++) {
+									res += '<br/>' + params[i].seriesName + ' : ' + params[i].value
+								}
+								res += '</div>';
+								return res;
+							}
+						},
+						calculable: true,
+						xAxis: [{
+							name: '活动类型',
+							type: 'category',
+							data: activitys,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 0,
+								margin: 8,
+								textStyle: {
+									fontSize: '15',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '活动数据',
+							type: 'value',
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+						}],
+						series: [{
+								name: '活动总数量',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasOne
+							},
+							{
+								name: '总价值',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasTwo
+							},
+							{
+								name: '参与量',
+								type: 'bar',
+								itemStyle: {
+									normal: {
+										//显示数字
+										label: {
+											show: true
+										}
+									}
+								},
+								data: datasThree
+							},
+						],
+						legend: {
+							x: 'left',
+							data: ['活动总数量', '总价值', '参与量'],
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize ", function() {
+						myChart.resize();
+					});
+				});
+		</script>
+	</body>
+	
+</html>

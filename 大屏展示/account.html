@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>大屏展示-账户</title>
+
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" href="css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="layer/theme/default/layer.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/account.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- 引入jQuery核心js文件 -->
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<!-- 引入BootStrap核心js文件 -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+
+		<script type="text/javascript">
+			//账户总充值金额
+			function account_zczje() {
+				var datas = [{
+						'dataOne': 'a',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'b',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'c',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'd',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'e',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'f',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'g',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'h',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>账户</th>' +
+					'<th>总充值金额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//账户总剩余金额
+			function account_sjzsyje() {
+				var datas = [{
+						'dataOne': 'a',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'b',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'c',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'd',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'e',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'f',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'g',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': 'h',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>账户</th>' +
+					'<th>总剩余金额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//消耗金额分时统计
+			function account_xhjefstj() {
+				var datas = [{
+						'dataOne': '1',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '2',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '3',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '4',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '5',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '6',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '7',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '8',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>时间</th>' +
+					'<th>消耗金额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+
+			//充值金额分时统计
+			function account_czfstj() {
+				var datas = [{
+						'dataOne': '1',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '2',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '3',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '4',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '5',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '6',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '7',
+						'dataTwo': 10
+					},
+					{
+						'dataOne': '8',
+						'dataTwo': 10
+					}
+				];
+				var table = '<table border="1" width="100%" height="100%" align="center" id="tal">' +
+					'<thead>' +
+					'<tr>' +
+					'<th>时间</th>' +
+					'<th>充值金额</th>' +
+					'</tr>' +
+					'</thead>' + '<tbody>';
+				for(var i = 0; i < datas.length; i++) {
+					table += '<tr>' +
+						'<td>' + datas[i].dataOne + '</td>' +
+						'<td>' + datas[i].dataTwo + '</td>' +
+						'</tr>';
+				}
+				table += '</tbody>' + '</table>';
+				layer.open({
+					type: 1,
+					skin: '', //样式类名
+					area: ['1000px', '500px'],
+					closeBtn: 2, //不显示关闭按钮
+					anim: 6,
+					shadeClose: true, //开启遮罩关闭
+					content: table
+				});
+				$("tbody tr:odd").addClass("odd");
+
+				$("tbody tr:even").addClass("even");
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row animated bounce">
+				<!--<ul class="nav nav-tabs">-->
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation">
+						<a href="agent.html">代理商</a>
+					</li>
+					<li role="presentation">
+						<a href="business.html">商家</a>
+					</li>
+					<li role="presentation">
+						<a href="user.html">用户</a>
+					</li>
+					<li role="presentation" class="active">
+						<a href="account.html">账户</a>
+					</li>
+					<li role="presentation">
+						<a href="activity.html">活动</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="account_zczje"></div>
+				<button type="button" class="btn btn-info" onclick="account_zczje();" style="position:absolute;left:73rem;">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="account_sjzsyje"></div>
+				<button type="button" class="btn btn-info" onclick="account_sjzsyje();" style="position:absolute;right:1.5rem;">详情</button>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="account_xhjefstj"></div>
+				<button type="button" class="btn btn-info" onclick="account_xhjefstj();" style="position:absolute;left:73rem;">详情</button>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="account_czfstj"></div>
+				<button type="button" class="btn btn-info" onclick="account_czfstj();" style="position:absolute;right:1.5rem;">详情</button>
+			</div>
+		</div>
+
+		<!-- 引入单文件 -->
+		<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+		<script type="text/javascript">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+			//第一个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(account_zczje) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = account_zczje.init(document.getElementById('account_zczje'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '账户充值总额和排行',
+							subtext: '账户充值总额:100万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 18,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '账户所属城市',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+								/*formatter: function(value) {
+									var ret = "";
+									var maxLength = 2;
+									var valLength = value.length;
+									var rowN = Math.ceil(valLength / maxLength);
+									if(rowN > 1) {
+										for(var i = 0; i < rowN; i++) {
+											var temp = "";
+											var start = i * maxLength;
+											var end = start + maxLength;
+											temp = value.substring(start, end) + "\n";
+											ret += temp;
+										}
+										return ret;
+									} else {
+										return value;
+									}
+								}*/
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总充值金额（万）',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}万"
+						},
+						/*toolbox: {
+							show: true,
+							orient: 'vertical',
+							x: 'right',
+							y: 'center',
+							feature: {
+								dataView: {
+									show: true,
+									readOnly: false,
+								},
+							}
+						},*/
+						series: [{
+							name: '账户充值总额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第二个统计图 
+			require(
+				[
+					'echarts',
+					'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+				],
+
+				function(account_sjzsyje) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = account_sjzsyje.init(document.getElementById('account_sjzsyje'));
+					//传值位置
+					var citys = ['武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州', '武汉', '上海', '深圳', '成都', '广州', '重庆', '葫芦岛', '长沙', '杭州'];
+					var datas = [30000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000, 25000, 20000, 15000, 10000, 5000, 4000, 3000, 2000];
+					var dataOne = citys.slice(0, 9);
+					var dataTwo = datas.slice(0, 9);
+					var option = {
+						title: {
+							text: '账户总剩余金额和排行',
+							subtext: '账户总剩余金额：1100000万',
+							x: 'center',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							},
+							subtextStyle: {
+								fontWeight: 'bolder',
+								fontSize: 16,
+								color: 'red'
+							},
+						},
+						calculable: true,
+						xAxis: [{
+							name: '账户所属城市',
+							type: 'category',
+							splitNumber: 4,
+							data: dataOne,
+							axisLabel: {
+								show: true,
+								interval: 'auto',
+								inside: false,
+								rotate: 40,
+								margin: 8,
+								textStyle: {
+									fontSize: '10',
+									fontWeight: 'lighter',
+									color: '#DFDFDF',
+								},
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							}
+						}],
+						yAxis: [{
+							name: '总剩余金额(万)',
+							type: 'value',
+							//修改坐标轴上面文字
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#DFDFDF'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a}<br/>{b} : {c}个"
+						},
+						series: [{
+							name: '账户总剩余金额',
+							type: 'bar',
+							data: dataTwo,
+							barGap: 1,
+							//设置柱子宽度
+							barWidth: 10,
+							//给柱状图上面添加数字
+							itemStyle: {
+								normal: {
+									color: function(params) {
+										var colorList = [
+											'#C63806', '#C7330B', '#C98204', '#6FB809', '#07B793',
+											'#0599B7', '#0A5BB7', '#0E27BF', '#521EC8', '#CD00CD',
+											'#912CEE', '#ADD8E6', '#8B3A3A', '#00F5FF', '#00FF00',
+										];
+										return colorList[params.dataIndex]
+									},
+									//显示数字
+									label: {
+										show: true
+									}
+								}
+							},
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						},
+					}
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				});
+
+			//第三个统计图
+			require(
+				[
+					'echarts',
+					'echarts/chart/line' // 使用柱状图就加载line模块，按需加载
+				],
+
+				function(account_xhjefstj) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = account_xhjefstj.init(document.getElementById('account_xhjefstj'));
+					var datas = [1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600, 2400, 5300, 7200, 9300, 1000, 3700, 4800, 3400, 2900, 1000, 1600];
+					var option = {
+						title: {
+							x: 'center',
+							text: '消耗金额分时统计',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							}
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} </br> {b}时 : {c}万"
+						},
+						calculable: true,
+
+						xAxis: [{
+							name: '时间',
+							type: 'category',
+							boundaryGap: true,
+							data: ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24'],
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#DFDFDF'
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+						}],
+
+						yAxis: [{
+							name: '消耗金额(万)',
+							type: 'value',
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#fff'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+
+						series: [{
+							name: '消耗金额',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									//让图表显示数据
+									label: {
+										show: true
+									},
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datas
+						}],
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						}
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				}
+			);
+
+			//第四个统计图
+			// 使用
+			require(
+				[
+					'echarts',
+					'echarts/chart/line' // 使用柱状图就加载line模块，按需加载
+				],
+
+				function(account_czfstj) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = account_czfstj.init(document.getElementById('account_czfstj'));
+					var datas = [3000, 1507, 2860, 3450, 4540, 6370, 7802, 9810, 4330, 3560, 2900, 2000];
+					var option = {
+						title: {
+							x: 'center',
+							text: '充值金额分时统计',
+							textStyle: {
+								fontSize: 25,
+								fontWeight: 'bolder',
+								color: '#DFDFDF',
+							}
+						},
+						calculable: true,
+
+						xAxis: [{
+							name: '时间',
+							type: 'category',
+							boundaryGap: true,
+							data: ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24'],
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#DFDFDF'
+								}
+							},
+							//去除柱状图表格后面的线
+							splitLine: {
+								show: false
+							},
+						}],
+
+						yAxis: [{
+							name: '充值金额(万)',
+							type: 'value',
+							axisLabel: {
+								formatter: '{value}',
+								textStyle: {
+									color: '#fff'
+								},
+							},
+							splitLine: {
+								show: false
+							},
+						}],
+
+						series: [{
+							name: '充值金额',
+							type: 'line',
+							smooth: true,
+							itemStyle: {
+								normal: {
+									label: {
+										show: true
+									},
+									areaStyle: {
+										type: 'default'
+									}
+								}
+							},
+							data: datas
+						}],
+						//提示框
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} </br> {b}时 : {c}万"
+						},
+						//去除外边的框框
+						grid: {
+							show: 'true',
+							borderWidth: '0',
+						}
+					};
+					// 为echarts对象加载数据 
+					myChart.setOption(option);
+					//自动适应屏幕
+					window.addEventListener("resize", function() {
+						myChart.resize();
+					});
+				}
+			);
+		</script>
+	</body>
+
+</html>
